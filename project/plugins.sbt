@@ -3,4 +3,4 @@ resolvers ++= Seq(
   "Twitter Maven" at "https://maven.twttr.com"
 )
 
-addSbtPlugin("com.twitter" % "scrooge-sbt-plugin" % "22.12.0")
+addSbtPlugin("com.twitter" % "scrooge-sbt-plugin" % "21.2.0")

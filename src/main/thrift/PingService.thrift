@@ -1,5 +1,5 @@
-namespace java hello.realworld
-#@namespace scala hello.realworld
+namespace java hello.realworld.port.in
+#@namespace scala hello.realworld.port.in
 
 service PingService {
 

@@ -1,19 +1,16 @@
 package hello.realworld
 
-import com.twitter.finatra.thrift.ThriftServer
-import com.twitter.finatra.thrift.filters.{AccessLoggingFilter, LoggingMDCFilter, StatsFilter, ThriftMDCFilter, TraceIdMDCFilter}
-import com.twitter.finatra.thrift.routing.ThriftRouter
-import hello.realworld.controller.PingController
+import com.twitter.finatra.http.HttpServer
+import com.twitter.finatra.http.routing.HttpRouter
+import hello.realworld.adapter.in.http.LoginController
 
-object Realworld extends ThriftServer{
 
-  override protected def configureThrift(router: ThriftRouter): Unit = {
+
+class Realworld extends HttpServer {
+
+  override protected def configureHttp(router: HttpRouter): Unit = {
     router
-      .filter[LoggingMDCFilter]
-      .filter[TraceIdMDCFilter]
-      .filter[ThriftMDCFilter]
-      .filter[AccessLoggingFilter]
-      .filter[StatsFilter]
-      .add[PingController]
+      .add[LoginController]
   }
 }
+object ServerMain extends Realworld

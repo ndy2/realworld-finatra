@@ -3,7 +3,7 @@ package hello.realworld.adapter.in.http
 import com.twitter.finatra.http.EmbeddedHttpServer
 import com.twitter.inject.server.FeatureTest
 import hello.realworld.Realworld
-import hello.realworld.adapter.in.model.UserResponse
+import hello.realworld.adapter.in.model.UserResp
 
 class LoginFeatureTest extends FeatureTest {
 
@@ -13,13 +13,13 @@ class LoginFeatureTest extends FeatureTest {
 
   test("LoginController#login") {
     // when
-    val response: UserResponse = server.httpPostJson[UserResponse](
+    val response: UserResp = server.httpPostJson[UserResp](
       path = "/users/login",
       postBody = ""
     )
 
     // then
-    response shouldEqual UserResponse(
+    response shouldEqual UserResp(
       email = "jake@jake.jake",
       token = "jwt.token.here",
       username = Some("jake"),

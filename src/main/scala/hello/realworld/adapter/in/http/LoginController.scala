@@ -1,20 +1,21 @@
 package hello.realworld.adapter.in.http
 
-import com.twitter.finagle.http.Request
 import com.twitter.finatra.http.Controller
-import hello.realworld.adapter.in.model.UserResp
+import hello.realworld.adapter.in.model.{LoginReq, UserResp}
 
 class LoginController extends Controller {
 
-  post("/users/login") { req: Request =>
+  post[LoginReq, UserResp]("/users/login") { req: LoginReq =>
+    // binding
+    val loginReq = req
+
     // response
-    val body = UserResp(
-      email = "jake@jake.jake",
+    UserResp(
+      email = "aaa",
       token = "jwt.token.here",
       username = Some("jake"),
       bio = Some("I work at statefarm"),
       image = None
     )
-    response.ok(body)
   }
 }

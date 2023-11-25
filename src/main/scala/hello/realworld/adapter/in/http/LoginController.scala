@@ -7,11 +7,11 @@ class LoginController extends Controller {
 
   post[LoginReq, UserResp]("/users/login") { req: LoginReq =>
     // binding
-    val loginReq = req
+    println(s"req = ${req}")
 
     // response
     UserResp(
-      email = "aaa",
+      email = "jake@jake.jake",
       token = "jwt.token.here",
       username = Some("jake"),
       bio = Some("I work at statefarm"),

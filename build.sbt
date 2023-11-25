@@ -26,11 +26,11 @@ lazy val root = (project in file("."))
       "com.twitter"                 %% "inject-core"     % versions.finatra   % "test",
       "com.twitter"                 %% "inject-modules"  % versions.finatra   % "test",
       "com.google.inject.extensions" % "guice-testlib"   % versions.guice     % "test",
-      "com.twitter"                 %% "finatra-http"    % versions.finatra   % "test" classifier "tests",
-      "com.twitter"                 %% "inject-server"   % versions.finatra   % "test" classifier "tests",
-      "com.twitter"                 %% "inject-app"      % versions.finatra   % "test" classifier "tests",
-      "com.twitter"                 %% "inject-core"     % versions.finatra   % "test" classifier "tests",
-      "com.twitter"                 %% "inject-modules"  % versions.finatra   % "test" classifier "tests",
+      "com.twitter"                 %% "finatra-http"    % versions.finatra classifier "tests" withSources (),
+      "com.twitter"                 %% "inject-server"   % versions.finatra classifier "tests",
+      "com.twitter"                 %% "inject-app"      % versions.finatra classifier "tests",
+      "com.twitter"                 %% "inject-core"     % versions.finatra classifier "tests",
+      "com.twitter"                 %% "inject-modules"  % versions.finatra classifier "tests",
       "org.mockito"                  % "mockito-core"    % versions.mockito   % "test",
       "org.scalatest"               %% "scalatest"       % versions.scalatest % "test"
     )

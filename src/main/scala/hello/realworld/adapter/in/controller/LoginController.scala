@@ -3,8 +3,8 @@ package hello.realworld.adapter.in.controller
 import com.twitter.finagle.http.Request
 import com.twitter.finatra.http.Controller
 import hello.realworld.adapter.in.filter.AuthenticationFilter
-import hello.realworld.adapter.in.model.{LoginReq, RegistrationReq, UserResp}
-import hello.realworld.domain.UserInfoContext
+import hello.realworld.adapter.in.model.{ LoginReq, RegistrationReq, UserResp }
+import hello.realworld.domain.UserInfoContext._
 
 class LoginController extends Controller {
 
@@ -40,18 +40,15 @@ class LoginController extends Controller {
     )
   }
 
-  filter[AuthenticationFilter]
-    .get(
-      route = "/user",
-      name = " Get Current User"
-    ) { req: Request =>
-      {
-        println(s"req = ${req}")
-        val userInfo = UserInfoContext.get()
-        println(s"userInfo = ${userInfo}")
+  filter[AuthenticationFilter].get(
+    route = "/user",
+    name = " Get Current User"
+  ) { req: Request =>
+    {
+      println(s"req = ${req}")
+      println(s"userInfo = ${req.userInfo}")
 
-
-        response.ok.body("hi!")
-      }
+      response.ok.body("hi!")
     }
+  }
 }

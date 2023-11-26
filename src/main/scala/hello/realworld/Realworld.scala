@@ -3,7 +3,7 @@ package hello.realworld
 import com.google.inject
 import com.twitter.finatra.http.HttpServer
 import com.twitter.finatra.http.routing.HttpRouter
-import hello.realworld.adapter.in.http.LoginController
+import hello.realworld.adapter.in.controller.LoginController
 import hello.realworld.config.RealworldObjectMapperModule
 
 class Realworld extends HttpServer {

@@ -1,4 +1,4 @@
-package hello.realworld.adapter.in.http
+package hello.realworld.adapter.in.controller
 
 import com.twitter.finagle.http.Response
 import com.twitter.finagle.http.Status.Ok

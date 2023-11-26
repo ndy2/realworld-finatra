@@ -4,10 +4,11 @@ import com.fasterxml.jackson.annotation.JsonRootName
 
 @JsonRootName(value = "user")
 case class LoginReq(
-   val email: String,
-   val password: String
+   email: String,
+   password: String
 )
 
+@JsonRootName(value = "user")
 case class RegistrationReq(
     username: String,
     email: String,

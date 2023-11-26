@@ -13,7 +13,7 @@ object UserInfoContext {
     def userInfo: UserInfo = request.ctx(UserInfoField)
   }
 
-  private[twitter] def setUserInfo(request: Request, userInfo: UserInfo): Unit = {
+  private[realworld] def setUserInfo(request: Request, userInfo: UserInfo): Unit = {
     request.ctx.update(UserInfoField, userInfo)
   }
 }

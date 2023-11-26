@@ -6,7 +6,7 @@ import hello.realworld.adapter.in.filter.AuthenticationFilter
 import hello.realworld.adapter.in.model.{ LoginReq, RegistrationReq, UserResp }
 import hello.realworld.domain.UserInfoContext._
 
-class LoginController extends Controller {
+class UserController extends Controller {
 
   post[LoginReq, UserResp](
     route = "/users/login",
@@ -44,11 +44,9 @@ class LoginController extends Controller {
     route = "/user",
     name = " Get Current User"
   ) { req: Request =>
-    {
-      println(s"req = ${req}")
-      println(s"userInfo = ${req.userInfo}")
+    println(s"req = ${req}")
+    println(s"userInfo = ${req.userInfo}")
 
-      response.ok.body("hi!")
-    }
+    response.ok.body("hi!")
   }
 }

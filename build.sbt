@@ -13,25 +13,32 @@ lazy val root = (project in file("."))
     name := "realworld-finatra",
     organization := "hello.realworld",
     libraryDependencies ++= Seq(
-      "com.typesafe"                 % "config"          % "1.3.1",
-      "com.iheart"                  %% "ficus"           % "1.4.0",
-      "com.zaxxer"                   % "HikariCP"        % "2.6.2",
-      "ch.qos.logback"               % "logback-classic" % "1.2.3",
-      "com.twitter"                 %% "finagle-thrift"  % versions.finatra,
-      "com.twitter"                 %% "finatra-http"    % versions.finatra,
-      "com.twitter"                 %% "scrooge-core"    % versions.finatra,
-      "com.twitter"                 %% "finatra-http"    % versions.finatra   % "test",
-      "com.twitter"                 %% "inject-server"   % versions.finatra   % "test",
-      "com.twitter"                 %% "inject-app"      % versions.finatra   % "test",
-      "com.twitter"                 %% "inject-core"     % versions.finatra   % "test",
-      "com.twitter"                 %% "inject-modules"  % versions.finatra   % "test",
-      "com.google.inject.extensions" % "guice-testlib"   % versions.guice     % "test",
-      "com.twitter"                 %% "finatra-http"    % versions.finatra classifier "tests" withSources (),
-      "com.twitter"                 %% "inject-server"   % versions.finatra classifier "tests",
-      "com.twitter"                 %% "inject-app"      % versions.finatra classifier "tests",
-      "com.twitter"                 %% "inject-core"     % versions.finatra classifier "tests",
-      "com.twitter"                 %% "inject-modules"  % versions.finatra classifier "tests",
-      "org.mockito"                  % "mockito-core"    % versions.mockito   % "test",
-      "org.scalatest"               %% "scalatest"       % versions.scalatest % "test"
+      // config
+      "com.typesafe" % "config" % "1.3.1",
+      "com.iheart"  %% "ficus"  % "1.4.0",
+      // logging
+      "ch.qos.logback" % "logback-classic" % "1.2.3",
+      // finatra with guice
+      "com.twitter"                 %% "finagle-thrift" % versions.finatra,
+      "com.twitter"                 %% "finatra-http"   % versions.finatra,
+      "com.twitter"                 %% "scrooge-core"   % versions.finatra,
+      "com.twitter"                 %% "finatra-http"   % versions.finatra % "test",
+      "com.twitter"                 %% "inject-server"  % versions.finatra % "test",
+      "com.twitter"                 %% "inject-app"     % versions.finatra % "test",
+      "com.twitter"                 %% "inject-core"    % versions.finatra % "test",
+      "com.twitter"                 %% "inject-modules" % versions.finatra % "test",
+      "com.google.inject.extensions" % "guice-testlib"  % versions.guice   % "test",
+      "com.twitter"                 %% "finatra-http"   % versions.finatra classifier "tests",
+      "com.twitter"                 %% "inject-server"  % versions.finatra classifier "tests",
+      "com.twitter"                 %% "inject-app"     % versions.finatra classifier "tests",
+      "com.twitter"                 %% "inject-core"    % versions.finatra classifier "tests",
+      "com.twitter"                 %% "inject-modules" % versions.finatra classifier "tests",
+      // FRM and DB
+      "com.typesafe.slick" %% "slick"         % "3.4.1",
+      "com.typesafe.slick" %% "slick-codegen" % "3.4.1",
+      "com.h2database"      % "h2"            % "2.2.220",
+      // test
+      "org.mockito"    % "mockito-core" % versions.mockito   % "test",
+      "org.scalatest" %% "scalatest"    % versions.scalatest % "test"
     )
   )

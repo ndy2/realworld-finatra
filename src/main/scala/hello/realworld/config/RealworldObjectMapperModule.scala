@@ -1,9 +1,9 @@
 package hello.realworld.config
 
-import com.fasterxml.jackson.databind.{DeserializationFeature, ObjectMapper, SerializationFeature}
+import com.fasterxml.jackson.databind.{ DeserializationFeature, ObjectMapper, SerializationFeature }
 import com.fasterxml.jackson.module.scala.DefaultScalaModule
 import com.twitter.finatra.jackson.modules.ScalaObjectMapperModule
-import hello.realworld.adapter.in.model.{LoginReq, RegistrationReq, UserResp}
+import hello.realworld.adapter.in.model.{ LoginReq, RegistrationReq, UpdateUserReq, UserResp }
 
 object RealworldObjectMapperModule extends ScalaObjectMapperModule {
 
@@ -16,6 +16,7 @@ object RealworldObjectMapperModule extends ScalaObjectMapperModule {
 
     mapper.readValue(mapper.writeValueAsString(LoginReq("a", "b")), classOf[LoginReq])
     mapper.readValue(mapper.writeValueAsString(RegistrationReq("a", "b", "c")), classOf[RegistrationReq])
+    mapper.readValue(mapper.writeValueAsString(UpdateUserReq(Some("a"), Some("b"), Some("c"))), classOf[UpdateUserReq])
     mapper.readValue(mapper.writeValueAsString(UserResp("a", "b", Some("c"), None, None)), classOf[UserResp])
   }
 }

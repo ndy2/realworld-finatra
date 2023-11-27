@@ -3,10 +3,13 @@ package hello.realworld.adapter.in.controller
 import com.twitter.finagle.http.Request
 import com.twitter.finatra.http.Controller
 import hello.realworld.adapter.in.filter.AuthenticationFilter
-import hello.realworld.adapter.in.model.{ LoginReq, RegistrationReq, UserResp }
+import hello.realworld.adapter.in.model.{LoginReq, RegistrationReq, UserResp}
+import hello.realworld.application.UserService
 import hello.realworld.domain.UserInfoContext._
 
-class UserController extends Controller {
+class UserController(
+    service: UserService
+                    ) extends Controller {
 
   post[LoginReq, UserResp](
     route = "/users/login",
@@ -47,6 +50,30 @@ class UserController extends Controller {
     println(s"req = ${req}")
     println(s"userInfo = ${req.userInfo}")
 
-    response.ok.body("hi!")
+    // response
+    UserResp(
+      email = "jake@jake.jake",
+      token = "jwt.token.here",
+      username = Some("jake"),
+      bio = Some("I work at statefarm"),
+      image = None
+    )
+  }
+
+  filter[AuthenticationFilter].put(
+    route = "/user",
+    name = " Update User"
+  ) { req: Request =>
+    println(s"req = ${req}")
+    println(s"userInfo = ${req.userInfo}")
+
+    // response
+    UserResp(
+      email = "jake@jake.jake",
+      token = "jwt.token.here",
+      username = Some("jake"),
+      bio = Some("I work at statefarm"),
+      image = None
+    )
   }
 }
